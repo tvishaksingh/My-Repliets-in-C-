@@ -1,0 +1,134 @@
+using System;
+using System.Collections.Generic;
+
+public class MentalHealthApp
+{
+    public static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Mental Health App");
+            Console.WriteLine("Please choose one of the options:");
+            Console.WriteLine("1. Deep breathing");
+            Console.WriteLine("2. Positive quotes");
+            Console.WriteLine("3. Exercising");
+            Console.WriteLine("4. Sleeping");
+            Console.WriteLine("5. Exit");
+            
+            Console.Write("Enter your choice (1-5): ");
+            string choice = Console.ReadLine();
+            
+            switch (choice)
+            {
+                case "1":
+                    DeepBreathing();
+                    break;
+                case "2":
+                    PositiveQuotes();
+                    break;
+                case "3":
+                    Exercising();
+                    break;
+                case "4":
+                    Sleeping();
+                    break;
+                case "5":
+                    Console.WriteLine("Goodbye! Take care of your mental health.");
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice, please try again.");
+                    break;
+            }
+            
+            Console.WriteLine("\nPress any key to return to the menu...");
+            Console.ReadKey();
+        }
+    }
+
+    static void DeepBreathing()
+    {
+        Console.Clear();
+        Console.WriteLine("Deep Breathing Exercise:");
+        Console.WriteLine("1. Find a comfortable position.");
+        Console.WriteLine("2. Close your eyes and take a deep breath in through your nose for 4 seconds.");
+        Console.WriteLine("3. Hold your breath for 4 seconds.");
+        Console.WriteLine("4. Slowly exhale through your mouth for 4 seconds.");
+        Console.WriteLine("5. Repeat this process 5 times.");
+    }
+
+    static void PositiveQuotes()
+    {
+        string[] quotes = new string[]
+        {
+            "You are stronger than you think.",
+            "Every day is a second chance.",
+            "Believe you can and you're halfway there.",
+            "You are capable of amazing things.",
+            "You are enough just as you are."
+        };
+
+        Random random = new Random();
+        int index = random.Next(quotes.Length);
+
+        Console.Clear();
+        Console.WriteLine("Positive Quote:");
+        Console.WriteLine($"\"{quotes[index]}\"");
+    }
+
+    static void Exercising()
+    {
+        string[] exercises = new string[]
+        {
+            "Go for a 10-minute walk.",
+            "Stretch your body for 5 minutes.",
+            "Do some light yoga or meditation.",
+            "Try some basic bodyweight exercises like squats.",
+            "Do some push-ups.",
+            "Do some sit-ups.",
+            "Do some lunges.",
+            "Do a plank for 1 minute.",
+            "Do some jumping jacks.",
+            "Do some burpees.",
+            "Go for a run.",
+            "Do some high knees.",
+            "Do some butt kicks.",
+            "Do some mountain climbers.",
+            "Do some tricep dips.",
+            "Do some bicep curls.",
+            "Do some shoulder presses.",
+            "Do some calf raises.",
+            "Do some side planks.",
+            "Do some Russian twists."
+        };
+
+        Random random = new Random();
+        List<int> selectedIndexes = new List<int>();
+        while (selectedIndexes.Count < 5)
+        {
+            int index = random.Next(exercises.Length);
+            if (!selectedIndexes.Contains(index))
+            {
+                selectedIndexes.Add(index);
+            }
+        }
+
+        Console.Clear();
+        Console.WriteLine("Exercising Tips:");
+        for (int i = 0; i < selectedIndexes.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {exercises[selectedIndexes[i]]}");
+        }
+    }
+
+    static void Sleeping()
+    {
+        Console.Clear();
+        Console.WriteLine("Sleeping Tips:");
+        Console.WriteLine("1. Maintain a regular sleep schedule.");
+        Console.WriteLine("2. Create a restful environment.");
+        Console.WriteLine("3. Limit screen time before bed.");
+        Console.WriteLine("4. Avoid caffeine and heavy meals before sleep.");
+        Console.WriteLine("5. Practice a relaxing bedtime routine.");
+    }
+}
